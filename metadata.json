@@ -1,0 +1,6 @@
+{
+  "name": "Shadow",
+  "description": "An AI model marketplace where trust is enforced by on-chain performance bonds on Solana instead of star ratings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
