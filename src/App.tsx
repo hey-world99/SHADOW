@@ -15,6 +15,8 @@ import { HowItWorksModal } from './components/HowItWorksModal';
 import { WhitepaperModal } from './components/WhitepaperModal';
 import { AuthModal } from './components/AuthModal';
 import { TransactionReceiptModal, TxDetailData } from './components/TransactionReceiptModal';
+import { ShadowChatbot } from './components/ShadowChatbot';
+import { ModelRecommenderModal } from './components/ModelRecommenderModal';
 import { authService, UserProfile } from './services/authService';
 import { INITIAL_MODELS, INITIAL_LEADERBOARD, INITIAL_SETTLEMENTS } from './data/mockModels';
 import { AIModel, LeaderboardEntry, SettlementEvent, WalletState } from './types';
@@ -73,6 +75,7 @@ export function App() {
   const [isListModelOpen, setIsListModelOpen] = useState<boolean>(false);
   const [isHowItWorksOpen, setIsHowItWorksOpen] = useState<boolean>(false);
   const [isWhitepaperOpen, setIsWhitepaperOpen] = useState<boolean>(false);
+  const [isRecommenderOpen, setIsRecommenderOpen] = useState<boolean>(false);
   const [deploymentModalState, setDeploymentModalState] = useState<{ model: AIModel; txHash: string } | null>(null);
   const [inspectedTx, setInspectedTx] = useState<TxDetailData | null>(null);
 
@@ -445,6 +448,7 @@ export function App() {
           onOpenHowItWorks={() => setIsHowItWorksOpen(true)}
           onOpenWhitepaper={() => setIsWhitepaperOpen(true)}
           onOpenListModel={() => setIsListModelOpen(true)}
+          onOpenRecommender={() => setIsRecommenderOpen(true)}
           showNavTabs={viewMode === 'app'}
           onGoToLanding={() => setViewMode('landing')}
           currentUser={currentUser}
@@ -471,6 +475,7 @@ export function App() {
               }}
               onOpenAuth={() => setIsAuthModalOpen(true)}
               onOpenProtocolSpec={() => setIsHowItWorksOpen(true)}
+              onOpenRecommender={() => setIsRecommenderOpen(true)}
             />
           ) : (
             <>
@@ -483,6 +488,7 @@ export function App() {
                   onOpenTrustFeed={() => setActiveTab('feed')}
                   onOpenHowItWorks={() => setIsHowItWorksOpen(true)}
                   onOpenListModel={() => setIsListModelOpen(true)}
+                  onOpenRecommender={() => setIsRecommenderOpen(true)}
                   onSelectModel={(id) => setSelectedModelId(id)}
                   recentSettlements={settlements.slice(0, 10)}
                   totalBondedSol={totalBondedSol}
@@ -659,6 +665,42 @@ export function App() {
           txData={inspectedTx}
         />
       )}
+
+      {/* 8. Intelligent AI Model Recommender Modal */}
+      <ModelRecommenderModal
+        isOpen={isRecommenderOpen}
+        onClose={() => setIsRecommenderOpen(false)}
+        models={models}
+        onSelectModel={(model, initialPrompt) => {
+          setViewMode('app');
+          setSelectedModelId(model.id);
+        }}
+        onBuyAccess={(model) => {
+          setViewMode('app');
+          handleBuyAccess(model);
+        }}
+      />
+
+      {/* 9. AI Assistant: "Shadow is speaking" */}
+      <ShadowChatbot
+        onOpenRecommender={() => setIsRecommenderOpen(true)}
+        onOpenMarketplace={() => {
+          setViewMode('app');
+          setActiveTab('marketplace');
+        }}
+        onOpenContract={() => {
+          setViewMode('app');
+          setActiveTab('contract');
+        }}
+        onRequestAirdrop={handleRequestAirdrop}
+        onSelectModel={(id) => {
+          setViewMode('app');
+          setSelectedModelId(id);
+        }}
+        models={models}
+        walletConnected={wallet.connected}
+        onConnectWallet={handleConnectWallet}
+      />
 
       {/* FLOATING TOAST NOTIFICATIONS */}
       <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none">

@@ -6,6 +6,7 @@ interface LandingHeroProps {
   onGetStarted: () => void;
   onOpenProtocolSpec: () => void;
   onOpenAuth: () => void;
+  onOpenRecommender?: () => void;
   currentUser?: UserProfile | null;
 }
 
@@ -13,6 +14,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
   onGetStarted,
   onOpenProtocolSpec,
   onOpenAuth,
+  onOpenRecommender,
   currentUser,
 }) => {
   return (
@@ -126,9 +128,20 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
               onClick={onOpenProtocolSpec}
               className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-2xl bg-purple-950/60 hover:bg-purple-900/80 border border-purple-500/40 text-purple-200 hover:text-white text-xs font-bold backdrop-blur-md transition-all shadow-[0_0_15px_rgba(147,51,234,0.2)] cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Shield className="w-4 h-4 text-purple-400" />
               <span>Protocol Spec</span>
             </button>
+
+            {onOpenRecommender && (
+              <button
+                id="hero-recommender-btn"
+                onClick={onOpenRecommender}
+                className="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-2xl bg-gradient-to-r from-indigo-950 via-purple-950 to-zinc-950 hover:border-amber-400 border border-amber-500/40 text-amber-300 text-xs font-bold backdrop-blur-md transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)] cursor-pointer group"
+              >
+                <Sparkles className="w-4 h-4 text-amber-300 group-hover:rotate-12 transition-transform" />
+                <span>AI Model Recommender</span>
+              </button>
+            )}
           </div>
 
           {/* Pill Features List */}

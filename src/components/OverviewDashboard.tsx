@@ -29,6 +29,7 @@ interface OverviewDashboardProps {
   onOpenTrustFeed: () => void;
   onOpenHowItWorks: () => void;
   onOpenListModel: () => void;
+  onOpenRecommender?: () => void;
   onSelectModel: (id: string) => void;
   recentSettlements: SettlementEvent[];
   totalBondedSol: number;
@@ -43,6 +44,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   onOpenTrustFeed,
   onOpenHowItWorks,
   onOpenListModel,
+  onOpenRecommender,
   onSelectModel,
   recentSettlements,
   totalBondedSol,
@@ -68,6 +70,15 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         </div>
 
         <div className="flex flex-wrap items-center gap-3 relative z-10">
+          {onOpenRecommender && (
+            <button
+              onClick={onOpenRecommender}
+              className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-600 via-purple-700 to-indigo-700 hover:from-amber-500 hover:to-indigo-600 text-white text-xs sm:text-sm font-bold shadow-[0_0_25px_rgba(245,158,11,0.4)] transition cursor-pointer group"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300 group-hover:rotate-12 transition-transform" />
+              <span>AI Recommender</span>
+            </button>
+          )}
           <button
             onClick={onExploreMarketplace}
             className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-purple-700 to-indigo-600 hover:from-purple-600 hover:to-indigo-500 text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(168,85,247,0.5)] transition"

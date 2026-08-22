@@ -32,6 +32,8 @@ interface NavbarProps {
   onOpenHowItWorks: () => void;
   onOpenWhitepaper: () => void;
   onOpenListModel: () => void;
+  onOpenRecommender?: () => void;
+  onOpenChatbot?: () => void;
   showNavTabs?: boolean;
   onGoToLanding?: () => void;
   currentUser?: UserProfile | null;
@@ -52,6 +54,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenHowItWorks,
   onOpenWhitepaper,
   onOpenListModel,
+  onOpenRecommender,
+  onOpenChatbot,
   showNavTabs = true,
   onGoToLanding,
   currentUser,
@@ -183,13 +187,25 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           )}
 
+          {/* Model Recommender CTA Button */}
+          {onOpenRecommender && (
+            <button
+              id="nav-model-recommender-btn"
+              onClick={onOpenRecommender}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-black tracking-wider uppercase bg-gradient-to-r from-indigo-950 via-purple-950 to-zinc-950 hover:border-amber-400/80 text-amber-300 border-2 border-amber-500/40 shadow-[0_0_15px_rgba(245,158,11,0.25)] transition cursor-pointer whitespace-nowrap group"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 group-hover:rotate-12 transition-transform" />
+              <span>AI RECOMMENDER</span>
+            </button>
+          )}
+
           {/* List Model CTA Button */}
           <button
             id="nav-list-model-btn"
             onClick={onOpenListModel}
             className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black tracking-wider uppercase bg-gradient-to-r from-purple-900 to-indigo-900 hover:from-purple-800 hover:to-indigo-800 text-white border-2 border-purple-400/50 shadow-[0_0_20px_rgba(168,85,247,0.3)] transition cursor-pointer whitespace-nowrap"
           >
-            <Sparkles className="w-3.5 h-3.5 text-purple-300" />
+            <Shield className="w-3.5 h-3.5 text-purple-300" />
             <span>STAKE & LIST</span>
           </button>
 
