@@ -16,10 +16,10 @@
 
 | Resource | URL | Description |
 | :--- | :--- | :--- |
-| **🚀 Production Preview** | [ais-pre-alr5vhhdsryk5g4oogeafn.asia-east1.run.app](https://ais-pre-alr5vhhdsryk5g4oogeafn-630295358767.asia-east1.run.app) | Live Interactive Dashboard & Marketplace |
-| **🛠️ Development App** | [ais-dev-alr5vhhdsryk5g4oogeafn.asia-east1.run.app](https://ais-dev-alr5vhhdsryk5g4oogeafn-630295358767.asia-east1.run.app) | Real-time staging environment with HMR |
+| **🛠️ Live Deployment** | https://shadow-theta-ashen.vercel.app/ | Live Shadow Protocol deployment |
+| **💻 GitHub Repository** | https://github.com/hey-world99/SHADOW | Source code and project repository |
 | **⚡ Solana Devnet RPC** | `https://api.devnet.solana.com` | Primary Solana Validator RPC endpoint |
-| **🔍 Solana Explorer** | [explorer.solana.com/?cluster=devnet](https://explorer.solana.com/?cluster=devnet) | Verify on-chain Devnet transactions & accounts |
+| **🔍 Solana Explorer** | https://explorer.solana.com/?cluster=devnet | Verify on-chain Devnet transactions & accounts |
 | **📜 Shadow Program ID** | `ShdwBond11111111111111111111111111111111111` | Canonical Solana Anchor Program ID |
 
 ---
