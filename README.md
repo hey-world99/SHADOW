@@ -14,12 +14,15 @@
 
 ## 🌐 Live Deployments & Quick Links
 
+## 🌐 Live Deployments & Quick Links
+
 | Resource | URL | Description |
 | :--- | :--- | :--- |
-| **🛠️ Live Deployment** | https://shadow-theta-ashen.vercel.app/ | Live Shadow Protocol deployment |
+| **🛠️ Live Deployment** | https://shadow-theta-ashen.vercel.app/ | Live Shadow Protocol application |
 | **💻 GitHub Repository** | https://github.com/hey-world99/SHADOW | Source code and project repository |
-| **⚡ Solana Devnet RPC** | `https://api.devnet.solana.com` | Primary Solana Validator RPC endpoint |
-| **🔍 Solana Explorer** | https://explorer.solana.com/?cluster=devnet | Verify on-chain Devnet transactions & accounts |
+| **🎥 Demo** | https://drive.google.com/file/d/1UiNF1KatdTeULDLN8H9I5Cz6bWVtDLy5/view?usp=sharing | Project demonstration video |
+| **⚡ Solana Devnet RPC** | `https://api.devnet.solana.com` | Primary Solana Devnet RPC endpoint |
+| **🔍 Solana Explorer** | https://explorer.solana.com/?cluster=devnet | Verify on-chain Devnet transactions and accounts |
 | **📜 Shadow Program ID** | `ShdwBond11111111111111111111111111111111111` | Canonical Solana Anchor Program ID |
 
 ---
